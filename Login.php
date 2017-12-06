@@ -12,17 +12,19 @@
 </html>
 <?php
 	include 'Database.php';
-if (isset($_POST['submit'])){
-	global $userName;
+if (isset($_POST['submit']))
+{
 	$userName = $_POST["Username"];
-	$passWord = $_POST["Password"];
-	$sql = "SELECT * FROM `bruger` WHERE UserName = '$userName' AND Password = '$passWord'";
-	$result = mysqli_query($conn,$sql);
-	//sql->query($sql); 
-	if (mysqli_num_rows($result) >= 1)
+	$sql = "SELECT * FROM `bruger` WHERE UserName = '$userName'";
+	//Finder den bruger der prøver at logge på og se hvad hashkode han har \\
+	$result = $conn->query($sql);
+	$row = $result->fetch_assoc();
+	$hashPassword = $row['Password'];
+	// End of hashkode \\
+	
+	if (password_verify($_POST["Password"], $hashPassword))
 	{
 		session_start();
-		//$fullsql = "SELECT * FROM 'bruger' WHERE UserName = '$userName'";
 		$result = $conn->query($sql);
 		$row = $result-> fetch_assoc();
 		$_SESSION['BrugerID'] = $row['ID'];
@@ -31,9 +33,8 @@ if (isset($_POST['submit'])){
 	}
 	else
 	{	
-		echo "Forkert kode eller kode!";
+		echo "Forkert brugernavn eller kode!";
 	}
-
 }
 
 

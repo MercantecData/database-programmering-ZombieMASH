@@ -22,7 +22,7 @@
 function createNewUser(){
 	include 'Database.php';
 	$userName = $_POST["Username"];
-	$passWord = $_POST["Password"];
+	$hashPassword = password_hash($_POST["Password"], PASSWORD_DEFAULT);
 	$Navn = $_POST["Navn"];
 	$Efternavn = $_POST["Efternavn"];
 	$Alder = $_POST["Alder"];
@@ -32,7 +32,7 @@ function createNewUser(){
 	$sql = "SELECT UserName from bruger WHERE UserName = '$userName'";
 	$result = mysqli_query($conn,$sql);
 	if (mysqli_num_rows($result) == 0){
-		$sql = "INSERT INTO bruger (UserName, Password, Navn, EfterNavn, Alder, Husdyr) VALUES ('$userName', '$passWord', '$Navn' , '$Efternavn', '$Alder', '$Husdyr')";
+		$sql = "INSERT INTO bruger (UserName, Password, Navn, EfterNavn, Alder, Husdyr) VALUES ('$userName', '$hashPassword', '$Navn' , '$Efternavn', '$Alder', '$Husdyr')";
 		$conn->query($sql);
 		echo '<h1> Du har nu oprettet en bruger </h1><br>';
 		echo '<a href="login.php"> Log in here </a>';

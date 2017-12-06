@@ -20,7 +20,7 @@ $row = $result->fetch_assoc();
 	<h1 id="Header" style="color: Black;"><center> DU ER LOGGET IND SOM <?php echo $upperName ?> </center></h1>
 <body>
 <div style="width: 49.5%; float:left; border: 1px solid black;">
-<h1> Om dig </h1> <br>
+<h1> Om dig </h1>
 <p style= "padding-left: 5px;">Navn: <?php echo $row['Navn']; ?> </p>
 <p style= "padding-left: 5px;">Efternavn: <?php echo $row['EfterNavn']; ?> </p>
 <p style= "padding-left: 5px;">Alder: <?php echo $row['Alder']; ?> </p>
@@ -80,17 +80,16 @@ function EditUser(){
 	$Alder = $_POST["Alder"];
 	$EfterNavn = $_POST["Efternavn"];
 	$Husdyr = $_POST["Husdyr"];
-	$passWord = $_POST["Password"];
 	$userName = $_POST["Username"];
 	// End of Declare variable \\	
 	
 	//Check if the username and passwords are the same \\
 	$RealuserName = $row['UserName'];
-	$RealpassWord = $row['Password'];
+	$hashPassword = $row['Password'];
 	
 	
 	
-	if ($RealuserName == $userName and $RealpassWord == $passWord)
+	if ($RealuserName == $userName and password_verify($_POST["Password"], $hashPassword))
 	// End of the info check \\
 	{
 		// Make sure every variable is filled out and send to the database \\
@@ -111,7 +110,12 @@ function EditUser(){
 			$Husdyr = $row['Husdyr']; // Return value to what it was before \\
 		}
 		// The update query!! Be carefull, you can edit your whole database at once \\	
-		$sql = "UPDATE bruger SET UserName = '$userName', Password = '$passWord', Navn = '$Navn', EfterNavn = '$EfterNavn', Alder = '$Alder', Husdyr = '$Husdyr' WHERE ID = '$userID'";
+		$sql = "UPDATE bruger SET  
+								Navn = '$Navn', 
+								EfterNavn = '$EfterNavn', 
+								Alder = '$Alder', 
+								Husdyr = '$Husdyr' 
+								WHERE ID = '$userID'";
 		$conn->query($sql);	
 		// End of Update query \\
 		// End of variable filled out \\
