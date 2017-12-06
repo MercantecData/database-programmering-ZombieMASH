@@ -1,0 +1,13 @@
+id: 1 - Name: $_GET["Username"] - Password: admin - Created: 2017-12-04 14:12:39 - Modified: 2017-12-04 14:12:39
+id: 2 - Name: admin - Password: admin - Created: 2017-12-04 14:13:59 - Modified: 2017-12-04 14:13:59
+id: 3 - Name: admin - Password: admin - Created: 2017-12-04 14:14:55 - Modified: 2017-12-04 14:14:55
+id: 4 - Name: admin - Password: admin - Created: 2017-12-04 14:18:20 - Modified: 2017-12-04 14:18:20
+id: 5 - Name: admin - Password: admin - Created: 2017-12-04 14:18:34 - Modified: 2017-12-04 14:18:34
+id: 6 - Name: kurt - Password: kurt - Created: 2017-12-04 14:24:57 - Modified: 2017-12-04 14:24:57
+id: 7 - Name: kurt - Password: kurt - Created: 2017-12-04 14:25:26 - Modified: 2017-12-04 14:25:26
+id: 8 - Name: adam - Password: adam - Created: 2017-12-04 14:25:49 - Modified: 2017-12-04 14:25:49
+id: 9 - Name: James - Password: Bond - Created: 2017-12-04 14:28:20 - Modified: 2017-12-04 14:28:20
+id: 10 - Name: test - Password: test - Created: 2017-12-05 08:34:00 - Modified: 2017-12-05 08:34:00
+id: 11 - Name: admin - Password: admin - Created: 2017-12-05 10:52:42 - Modified: 2017-12-05 10:52:42
+id: 12 - Name: kert - Password: kert - Created: 2017-12-05 10:53:32 - Modified: 2017-12-05 10:53:32
+id: 13 - Name: fghjkl - Password: fghjklæ - Created: 2017-12-05 11:28:29 - Modified: 2017-12-05 11:28:29

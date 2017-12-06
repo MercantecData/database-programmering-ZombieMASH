@@ -1,0 +1,193 @@
+<html>
+	<title> Gamer's Wiki </title>
+	<head>
+		<link rel="icon" href="Logo/Icon.png">
+		<link rel="stylesheet" type="text/css" href="Stylesheet.css"> 
+	</head>
+	
+	<body onload="startTime()">
+	
+	<h1 id="Header" style="color: #ff6600;"<center> Gamer's Wiki <p class="Clock" id="txt"></p></center></h1>
+	<!--<img id="BackHeader" src="Logo/header.jpg">	-->
+	</body>
+	
+	<div id="mySidenav" class="sidenav" style="transition: 1.5s; left: 0; width: 0;">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <p id="sidenav"> Change the background color: </p>
+	<img id="MiniPic" onclick="BackGroundToBlack()" src="Logo/Sort.jpg">
+	<img id="MiniPic" onclick="BackGroundToYellow()" src="Logo/Yellow.jpg">
+	<img id="MiniPic" onclick="BackGroundToWhite()" src="Logo/White.jpg">
+	<img id="MiniPic" onclick="BackGroundToPink()" src="Logo/Pink.png">
+	<img id="MiniPic" onclick="BackGroundToCyan()" src="Logo/Cyan.jpg">
+	<img id="MiniPic" onclick="BackGroundToGreen()" src="Logo/Green.jpg">
+	<img id="MiniPic" onclick="BackGroundToRed()" src="Logo/Red.jpg">
+  <br>
+</div>
+	
+	
+	
+	
+	<!-- Customize -->
+	<div id="Logo">
+	<h1 style="color:"> Customize </h1>
+	<a href="../UserProfile.php";>
+	<img src="Logo/AboutMe.png" style="padding-bottom: 25px;">
+	</a>
+	
+	<a onclick="openNav();">
+	<img src="Logo/Customize.png">
+	</a>
+	
+	</div>
+	<body>
+	<!-- All Gaming platforms -->
+	<div id="Logo"> <!-- OBS! The logo's sizes are not right, but no idea how to fix them atm. -->
+	<h1 style="color: #ff0000;"> Gaming platforms</h1>
+	<a href="Steam.html">
+	<img src="Logo/SteamLogo.png">
+	&emsp;
+	</a>
+	<a href="Uplay.html">
+	<img src="Logo/Uplay.png">
+	&emsp;
+	</a>
+	<a href="Origin.html">
+	<img src="Logo/Origin.png">
+	</a>
+	<br>
+	</div>
+	</body>
+	<!-- End of all gaming platforms> -->
+	
+	<!-- Windows -->
+	<body>
+	<div id="Logo">
+	<h1 style="color: Blue;"> Windows </h1>
+	<a href="Windows.html">
+	<img src="Logo/WindowsIcon.png">
+	<br>
+	</a>
+	</div>
+	</body>
+	<!-- End of Windows -->
+	
+	<!-- ChillZone -->
+	<body>
+	<div id = "Logo">
+	<h1 > Chill Zone </h1>
+	<a href="MusicZone.html">
+	<img src="Logo/MusicNode.jpg">
+	</a>
+	<br>
+	</div>
+	</body>
+	<!-- End of ChillZone -->
+	<br>
+	<!-- dette er outdated og burde ikke bruges  		https://developer.mozilla.org/en-US/docs/Web/HTML/Element/marquee -->
+	<marquee scrollamount= "15px;" > Denne hjemmeside er lavet af Richard Brown Thomsen</marquee>
+	
+
+<!-- Timer -->
+<script>
+function startTime() {
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById('txt').innerHTML =
+    "Time: " + h + ":" + m + ":" + s;
+    var t = setTimeout(startTime, 500);
+}
+function checkTime(i) {
+    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+}
+</script>
+<!-- End of Timer -->
+<!-- SideMenu -->
+<script>
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+	document.getElementById("main").style.marginLeft = "250px";
+}
+
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+	
+    document.getElementById("main").style.marginLeft = "0";
+}
+</script>
+<!-- End of SideMenu -->
+<!-- Customize -->
+<script>
+function BackGroundToBlack(){
+	document.body.style.backgroundColor = "Black";
+}
+function BackGroundToYellow(){
+	document.body.style.backgroundColor = "Yellow";
+}
+function BackGroundToWhite(){
+	document.body.style.backgroundColor = "White";
+}
+function BackGroundToPink(){
+	document.body.style.backgroundColor = "Pink";
+}
+function BackGroundToCyan(){
+	document.body.style.backgroundColor = "Cyan";	
+}
+function BackGroundToGreen(){
+	document.body.style.backgroundColor = "Green";
+}
+function BackGroundToRed(){
+	document.body.style.backgroundColor = "Red";
+}
+
+</script>
+<!-- End of Customize -->
+
+<!-- NOTER:
+- Video på siden, taget fra f.eks Youtube.
+- Et flot table med udtryg en gamer ville bruge.
+- Noget audio af en art.
+- En counntdown.
+- Mulighed for at vælge sin egen baggrund.
+- En timetime
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-->
+</html>
