@@ -55,7 +55,7 @@ $row = $result->fetch_assoc();
 	<br>
 	Husdyr:  <input type="text" name="Husdyr"></input>
 	<br>
-	
+	<br>
 	<input type="submit" value="Edit profil" name="submit">
 </form>
 <p> De dele du ikke ændre, forandre sig ikke. </p>
@@ -105,7 +105,7 @@ function EditUser(){
 		{
 			$Alder = $row['Alder']; // Return value to what it was before \\
 		}
-		if($Husdyr == null || $Husdyr == "")
+		if($Husdyr == null || $Husdyr == "" || $Husdyr <= 0)
 		{
 			$Husdyr = $row['Husdyr']; // Return value to what it was before \\
 		}
@@ -127,4 +127,46 @@ if(isset($_POST['submit']))
 	EditUser();
 	header('Location: UserProfile.php');
 }
+?>
+<html>
+<link rel="stylesheet" type="text/css" href="ClintSideProg/Stylesheet.css"> 
+<br><br>
+	<body>
+		<div style="width: 49.5%; float:left; border: 1px solid black;">
+			<h1>Opret en status</h1>
+
+<form method="post" action="UserProfile.php">
+	<textarea cols="50" rows="5" name="besked" style="padding-left: 5px;"> </textarea>
+	<input type="submit" value="Opdate" name="statusOpdate">
+</form>
+</div>
+</body>
+<body>
+	<div style="width: 49.5%; overflow: hidden;padding-left:8px;  border: 1px solid black;">
+		<h1> Dine status'er </h1>
+		<!-- Viser alle ens bedskedder -->
+		<?php
+		$userID = $_SESSION['BrugerID'];
+		$sql = "SELECT status.Status,status.Created FROM `status` WHERE OwnerID = '$userID'";
+		$result = $conn->query($sql);
+		while ($row = $result->fetch_assoc()) 
+		{
+			echo "<p style='overflow: visible; word-wrap: break-word'>" . $row['Created'] . "<br>" . $row['Status'] . "</p>";
+		}
+		?>
+		<!-- End of viser alle bedskedder -->
+	</div>
+</body>
+</html>
+<?php
+	//Laver en status \\
+if(isset($_POST['statusOpdate']))
+	{
+		$userID = $_SESSION['BrugerID'];
+		$status = $_POST['besked'];
+		$sql = "INSERT INTO `status` (`Status`, `OwnerID`) VALUES ('$status','$userID')";
+		$conn->query($sql);
+		header('Location: UserProfile.php');
+	}
+	// End of Laver status \\
 ?>
