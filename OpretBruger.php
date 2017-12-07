@@ -37,7 +37,8 @@ function createNewUser(){
 		echo '<h1> Du har nu oprettet en bruger </h1><br>';
 		echo '<a href="login.php"> Log in here </a>';
 	}
-	else{
+	else
+	{
 		echo "Du kan ikke bruge det brugernavn, prøv et andet.";
 	}
 }

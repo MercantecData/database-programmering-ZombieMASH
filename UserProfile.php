@@ -147,7 +147,7 @@ if(isset($_POST['submit']))
 		<!-- Viser alle ens bedskedder -->
 		<?php
 		$userID = $_SESSION['BrugerID'];
-		$sql = "SELECT status.Status,status.Created FROM `status` WHERE OwnerID = '$userID'";
+		$sql = "SELECT status.Status, status.Created FROM `status` WHERE OwnerID = '$userID' ORDER BY `status`.`Created` DESC";
 		$result = $conn->query($sql);
 		while ($row = $result->fetch_assoc()) 
 		{
@@ -165,8 +165,8 @@ if(isset($_POST['statusOpdate']))
 		$userID = $_SESSION['BrugerID'];
 		$status = $_POST['besked'];
 		$sql = "INSERT INTO `status` (`Status`, `OwnerID`) VALUES ('$status','$userID')";
-		$conn->query($sql);
-		header('Location: UserProfile.php');
+		$conn->query($sql);		
+		//header('Location: UserProfile.php');
 	}
 	// End of Laver status \\
 ?>
